@@ -33,3 +33,18 @@ def print_to_console_found_empl(found_empl):
         print("Данные не найдены")
     else:
         print(found_empl.values())
+
+def get_search_by_position():
+    search_position = input("Введите искомую должность: ")
+    return search_position
+
+def print_to_console_celection_position(found_list):
+    if found_list == None: 
+        print("Данные не найдены")
+    else:
+        for i in range(len(found_list)):
+            print(found_list[i])
+    
+def get_search_by_salary():
+    search_salary = input("Введите диапазон зарплат: ")
+    return search_salary

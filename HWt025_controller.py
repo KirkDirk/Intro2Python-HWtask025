@@ -11,7 +11,10 @@ def start_menu():
             found_empl = model.find_employee(employees, search_key, search_empl)
             view.print_to_console_found_empl(found_empl)
         elif mode == 2:
-            print("Здесь будет model.celection_position")
+            employees = model.read_csv()
+            name_pos = view.get_search_by_position()
+            list_empl_pos = model.get_list_empl_by_pos(employees, name_pos)
+            view.print_to_console_celection_position(list_empl_pos)
         elif mode == 3:
             print("Здесь будет model.salsry_sampling")
         elif mode == 4:

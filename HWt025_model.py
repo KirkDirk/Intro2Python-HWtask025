@@ -21,10 +21,19 @@ def get_key(key):
     list_key = ["id", "last_name", "first_name", "position", "phone_number", "salary"]
     return list_key[key]
 
-def find_employee(employees, key, search_data):
-    for employee in employees:
+def find_employee(full_list, key, search_data):
+    for employee in full_list:
         if search_data in employee[key]:
             return employee
+
+def get_list_empl_by_pos(full_list, search_pos):
+    found_list = []
+    for employee in full_list:
+        if search_pos == employee["position"]:
+            found_list.append(employee)
+    return found_list
+
+
 
 # def read_json() -> list:
 #     employee = []
