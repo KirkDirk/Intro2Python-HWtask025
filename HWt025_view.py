@@ -38,7 +38,7 @@ def get_search_by_position():
     search_position = input("Введите искомую должность: ")
     return search_position
 
-def print_to_console_celection_position(found_list):
+def print_to_console_celection(found_list):
     if found_list == None: 
         print("Данные не найдены")
     else:
@@ -48,3 +48,8 @@ def print_to_console_celection_position(found_list):
 def get_search_by_salary():
     search_salary = input("Введите диапазон зарплат: ")
     return search_salary
+
+def get_salary_range():
+    hi_salary = input("Введите верхнюю границу: ")
+    low_salary = input("Введите нижнюю границу: ")
+    return [hi_salary, low_salary]

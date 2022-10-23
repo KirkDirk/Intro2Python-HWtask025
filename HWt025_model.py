@@ -33,8 +33,6 @@ def get_list_empl_by_pos(full_list, search_pos):
             found_list.append(employee)
     return found_list
 
-
-
 # def read_json() -> list:
 #     employee = []
 #     with open(Path.cwd() / 'database02.json', 'r', encoding='utf-8') as fin:
@@ -54,4 +52,9 @@ def write_json(employees: list):
         for employee in employees:
             fout.write(json.dumps(employee) + '\n')
 
-
+def find_employees_by_salary_range(full_list, hi_sal, low_sal) -> list:
+    found_list = []
+    for employee in full_list:
+        if low_sal < float(employee["salary"]) < hi_sal:
+            found_list.append(employee)
+    return found_list
