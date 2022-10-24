@@ -24,9 +24,11 @@ def get_search_key():
     print("-" * 20+ "\n")
     return int(input("Введите вид поиска: "))-1
 
-def get_search_empl():
-    search_data = input("Введите данные для поиска сотрудника: ")
+def get_search_empl(data):
+    search_data = input("Введите " + data + " сотрудника: ")
     return search_data
+
+
 
 def print_to_console_found_empl(found_empl):
     if found_empl == None: 
@@ -53,3 +55,16 @@ def get_salary_range():
     hi_salary = input("Введите верхнюю границу: ")
     low_salary = input("Введите нижнюю границу: ")
     return [hi_salary, low_salary]
+
+def get_add_new_employee():
+    print("\n" + "-" * 20)
+    print("Введите данные сотрудника: ")
+    new_employee = []
+    temp = {}
+    temp["last_name"] = input("Введите фамилию: ")
+    temp["first_name"] = input("Введите имя: ")
+    temp["position"] = input("Введите должность: ")
+    temp["phone_number"] = input("Введите телефон: ")
+    temp["salary"] = float(input("Введите деньги: "))
+    new_employee.append(temp)
+    return new_employee

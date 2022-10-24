@@ -8,7 +8,7 @@ def start_menu():
         mode = view.get_mode()
         if mode == 1:
             search_key = model.get_key(view.get_search_key())
-            search_empl = view.get_search_empl()
+            search_empl = view.get_search_empl("данные для поиска")
             found_empl = model.find_employee(employees, search_key, search_empl)
             view.print_to_console_found_empl(found_empl)
         elif mode == 2:
@@ -16,16 +16,23 @@ def start_menu():
             list_empl_pos = model.get_list_empl_by_pos(employees, name_pos)
             view.print_to_console_celection(list_empl_pos)
         elif mode == 3:
-            print("Здесь будет model.salsry_sampling")
             hi, lo = view.get_salary_range()
             list_empl_salary = model.find_employees_by_salary_range(employees, float(hi), float(lo))
             view.print_to_console_celection(list_empl_salary)
         elif mode == 4:
-            print("Здесь будет model.add_employee")
+            data_new_empl = view.get_add_new_employee()
+            model.append_to_csv(model.get_last_id(), data_new_empl)
         elif mode == 5:
             print("Здесь будет model.del_employee")
+            last_name_empl = view.get_search_empl("фамилию")
+            employees_without = model.del_employee(employees, last_name_empl)
+            model.write_csv(employees_without)
         elif mode == 6:
             print("Здесь будет model.update_employee")
+            last_name_empl = view.get_search_empl("обновить данные какого")
+            new_data = view.get_add_new_employee()
+            employees_rep = model.replacement_employee(employees, last_name_empl, new_data)
+            model.write_csv(employees_rep)
         elif mode == 7:
             print("Здесь будет model.export_data_json")
         elif mode == 8:
