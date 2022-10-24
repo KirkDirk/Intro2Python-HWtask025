@@ -1,6 +1,5 @@
 import csv
 import json
-from pathlib import Path
 
 def read_csv() -> list:
     employees = []
@@ -60,13 +59,9 @@ def get_last_id():
             else: break
     return int(last_id)
 
-# def read_json() -> list:
-#     employee = []
-#     with open(Path.cwd() / 'database02.json', 'r', encoding='utf-8') as fin:
-#         for line in fin:
-#             temp = json.loads(line.strip())
-#             employee.append(temp)
-#     return employee
+def export_data_json(data) -> list:
+    with open('HWtask025\database.json', 'w', encoding='utf-8') as outfile:
+        json.dump(data, outfile, sort_keys=True, indent= 6)
 
 def write_csv(employees: list):
     with open('HWtask025\database.csv', 'w', encoding='utf-8', newline="") as fout:

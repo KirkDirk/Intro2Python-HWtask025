@@ -23,20 +23,18 @@ def start_menu():
             data_new_empl = view.get_add_new_employee()
             model.append_to_csv(model.get_last_id(), data_new_empl)
         elif mode == 5:
-            print("Здесь будет model.del_employee")
             last_name_empl = view.get_search_empl("фамилию")
             employees_without = model.del_employee(employees, last_name_empl)
             model.write_csv(employees_without)
         elif mode == 6:
-            print("Здесь будет model.update_employee")
             last_name_empl = view.get_search_empl("обновить данные какого")
             new_data = view.get_add_new_employee()
             employees_rep = model.replacement_employee(employees, last_name_empl, new_data)
             model.write_csv(employees_rep)
         elif mode == 7:
-            print("Здесь будет model.export_data_json")
+            model.export_data_json(employees)
         elif mode == 8:
-            print("Здесь будет model.export_data_csv")
+            model.write_csv(employees)
         elif mode == 9:
             print('Всего хорошего!')
             break
